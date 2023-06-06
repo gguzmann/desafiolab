@@ -49,11 +49,11 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("***** Cargar Cliente *****");
-                    exportadorCsv.importar("src\\test.csv", clienteServicio.getListaClientes());
+                    exportadorCsv.importar("src\\" + fileName1 + ".csv", clienteServicio.getListaClientes());
                     break;
                 case 5:
                     System.out.println("***** Exportar Cliente *****");
-                    exportadorCsv.exportar("src\\test.csv", clienteServicio.getListaClientes());
+                    menuExportar();
                     break;
                 case 6:
                     System.out.println("***** Salir *****");
@@ -72,10 +72,17 @@ public class Menu {
         System.out.println("1. Formato CSV");
         System.out.println("2. Formato TXT");
         System.out.println("Ingrese una opcion");
+        try{
 
-        int opt = sc.nextInt();
-        if(opt == 1) exportadorCsv.exportar("src\\test.csv", clienteServicio.getListaClientes());
-        if(opt == 2) exportadorTxt.exportar("src\\test.text", clienteServicio.getListaClientes());
+            int opt = sc.nextInt();
+            if(opt == 1) exportadorCsv.exportar("src\\" + fileName + ".csv", clienteServicio.getListaClientes());
+            if(opt == 2) exportadorTxt.exportar("src\\" + fileName + ".text", clienteServicio.getListaClientes());
+
+            System.out.println("Se ha exportado correctamente");
+        }catch(){
+            System.out.println("Error al importar");
+        }
+
 
 
     }
